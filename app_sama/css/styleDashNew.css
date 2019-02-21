@@ -1,0 +1,85 @@
+.table-user-list td {
+    vertical-align: middle !important;
+}
+td.num-user>span {
+    font-size: 22px;
+    font-weight: 600;
+    color: #a9b3ce;
+}
+.table-user-list span.avatar_table img {
+    width: 70px;
+    border-radius: 100px;
+}
+.table-user-list span.nome-email-user {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 30px;
+}
+.table-user-list span.nome-user {
+    display: block;
+	  color: #1b1c1e;
+	font-size: 15px;
+	font-weight: 600;
+}
+.opcoes-user>i {
+    font-size: 22px;
+}
+.opcoes-user {
+	cursor: pointer;	
+	display: inline-block;
+}
+.opcoes-user:hover > i {
+    color: #7c67df !important;
+}
+
+.opcoes-user:hover > ul {
+    display: block !important;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    padding: 15px 20px;
+    background: #fff;
+    border-radius: 5px;
+	  margin-left: -80px !important;
+}
+.opcoes-user > ul > li {
+    display: inline-block;
+	padding: 5px 0px;	
+}
+
+.opcoes-user > ul > li:not(:last-child) {
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 1px solid #dbd7ea;
+}
+
+/* icone desativar minha conta */
+i.m-nav__link-icon.la.la-user-times {
+    font-size: 25px !important;
+}
+
+.m-card-profile__pic-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+span.edita_avatar {
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background: #3e5d79a6;
+    padding: 7px 0px;
+    color: #fff;
+    font-weight: 500;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.8s all;
+    -webkit-transition: 0.8s all ;
+    -o-transition: 0.8s all ;
+    -moz-transition: 0.8s all ;
+}
+.m-card-profile__pic-wrapper:hover .edita_avatar {
+    visibility: visible !important;
+    opacity: 1 !important;
+}

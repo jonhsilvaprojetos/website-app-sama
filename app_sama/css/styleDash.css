@@ -1,0 +1,59 @@
+ul{
+    list-style-type: none;
+    padding:0;
+    margin:0;
+}
+#cabecalho {
+    background: #33dabd;
+}
+#cabecalho ul.wrapping {
+    float: right;
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+#cabecalho ul.wrapping li {
+    padding: 25px 40px;
+}
+#cabecalho ul.wrapping li a {
+    color: #fff;
+}
+.board-sama {
+    background: #f6f6f6;
+}
+.wrap-up {
+    width: 100%;
+}
+.board-sama ul.icons-user {
+    display: flex;
+    justify-content: space-around;
+}
+.body-left {   
+    top: -74px;
+}
+.board-sama .content-col {
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.17);
+    background: #fff;
+}
+.board-sama .user-up {
+    padding: 21px;
+    background: #38e4c6;
+}
+.board-sama .user-date {
+    text-align: center;
+}
+.board-sama .user-date span {
+    display: block;
+}
+.board-sama span.name-user {
+    font-size: 28px;
+    font-weight: 500;
+}
+.board-sama .img-user img {
+    width: 120px;
+    border-radius: 100px;
+}
+.board-sama .img-user {
+    padding: 30px 0px;
+}
+

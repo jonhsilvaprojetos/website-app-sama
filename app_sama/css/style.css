@@ -1,0 +1,172 @@
+body {
+    background-color: #294e5b;
+}
+.form-sama .right-img img {
+    width: 100%;
+}
+.form-sama form.f-s {
+    padding: 5px 79px 0px 79px;
+    float: right; 
+    width: 100%;
+}
+.form-sama  .right-img {
+    padding: 0;
+    flex: 0 0 45%;
+    max-width: 100%;
+}
+
+.form-sama  .form-control {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #33dabd;
+    border-radius: 0;
+    height: 25px;
+}
+.form-sama  .btn-primary {
+    border: 0;
+    background: #33dabd;
+    border-radius: 50px;
+    padding:11px 35px 11px 32px;
+    box-shadow: 0px 7px 16px -6px #33dabd;
+}
+.form-sama .form-group.btn-form-R{
+    text-align: center;
+    margin-top: 50px;
+}
+.form-sama form.f-s label {
+    font-size: 15px;
+    color: #717171;
+}
+.form-sama .text-form {
+    margin-left: -4px;
+    padding: 19px 0 49px 0px;
+    font-size: 50px;
+    color: #000;
+    font-weight: 600;
+    text-align: left;
+    line-height: 30px;
+}
+.form-sama .form-control:focus {
+    box-shadow: none;
+}
+.form-sama .logo-sama {
+    text-align: center;
+}
+.form-sama .logo-sama img{
+    width:160px;
+} 
+.form-sama .sing-in-sing-up {
+    text-align: center;
+}
+.form-sama .sing-in-sing-up button {
+    border: 0;
+    padding: 8px;
+    margin: 11px;
+    background: none;
+    cursor: pointer;
+    font-size: 17px;
+}
+.form-sama .sing-in-sing-up button:focus {
+    outline: none;
+}
+.form-sama form.f-s.login{
+    transition:all 0.4s;
+}
+.form-sama {
+    background: #294e5b;;
+    overflow: hidden;
+}
+.form-sama form.f-s.register {    
+        transform: translateX(513px);
+        position: absolute;
+        transition:all 0.4s;
+        opacity: 0 ;
+        visibility: hidden;
+}
+.form-sama .active-register form.f-s.register {
+    transform: translateX(0); 
+    opacity: 1 ;
+    visibility: visible;
+}
+.form-sama .active-register form.f-s.login{
+    transform: translateX(513px);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.form-sama .active-register button.login-form:after {
+    transform: translateX(84px);
+    width: 65px;
+}
+.form-sama  button.login-form:after {
+    content: "";
+    width: 49px;
+    border-bottom: 2px solid #33dabc;
+    height: 4px;
+    display: block;
+    transition: all 0.5s;
+    position: absolute;
+    left: 36%;
+}
+
+.form-sama  form.f-s input[type=number]::-webkit-inner-spin-button {
+    display: none;
+}
+.form-sama .btn-primary:not(:disabled):not(.disabled).active, 
+.form-sama .btn-primary:not(:disabled):not(.disabled):active, 
+.form-sama .show>.btn-primary.dropdown-toggle { 
+    background-color: #33dabc !important;
+    border-color: #33dabc !important;
+}
+
+@media (min-width:767px) {
+
+    .form-sama  .row.bg {
+        transition:all 0.3s;
+        background: #fff;
+        width: 980px;
+        margin: 15px auto 50px auto;
+        height: 700px;
+        
+       /*box-shadow: 0px 0px 15px 0px #999999;*/
+    }
+    .form-sama  .left-form {
+        padding: 0;
+        flex: 0 0 55%;
+        max-width: 100%;
+        position: relative;
+    }
+
+}
+@media (max-width:767px) {
+    .form-sama  .row.bg {
+        background: #f8f9fb;
+        width: 100%;
+        margin: 15px auto 50px auto;
+        height: 700px;
+        box-shadow: 0px 0px 21px 0px #7d7d7d;
+        overflow:hidden;
+    }
+    .form-sama .left-form {
+        flex: 0 0 100%;
+    }
+    .form-sama  .left-form {
+        padding: 0;
+        flex: 0 0 100%;
+        max-width: 100%;
+        position: relative;
+    }
+    .form-sama form.f-s {
+        padding: 0 20px;
+    }
+    
+    .row.bg.active-height {
+        height: 460px;
+    }
+    .form-sama .active-register button.login-form:after,
+    .form-sama button.login-form:after{
+        display:none;
+
+    }
+
+}
