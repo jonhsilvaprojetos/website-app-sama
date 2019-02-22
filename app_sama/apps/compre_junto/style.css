@@ -4,7 +4,7 @@ background:#f8f9fa;
 body * ,body,html *,html{
     font-family: 'Montserrat', sans-serif;
 }
-.conteiner {
+.container {
     width: 95%;
     max-width: 95%;
     margin: 0 auto;
@@ -17,13 +17,13 @@ display:none!important;
 
 .box_primary {
     position: relative;
-    width: 200px;
+    width: 220px;
     cursor: pointer;
     font-size: 22px;
     color: rgb(206, 206, 206);
     font-weight: 600;
     letter-spacing: -1px;
-    height: 230px;
+    height: 240px;
     box-sizing: border-box;
     text-align: center;
     box-shadow: rgba(232, 232, 232, 0.69) 1px 2px 8px 0px;
@@ -110,14 +110,14 @@ div#change_prod:hover {
     background: #f30404;
 }
 .box_content_app_compre_junto {
-    box-shadow: rgb(204, 204, 204) 1px 1px 3px 0px;
     margin-bottom: 70px;
-    background: rgb(251, 251, 251);
     background: #fff;
     padding: 25px;
     position: relative;
+    -webkit-box-shadow: 0 0.25rem 0.125rem 0 rgba(0,0,0,0.05);
+    box-shadow: 0 0.25rem 0.125rem 0 rgba(0,0,0,0.05);
 }
-.add_actions .add_miniaturas {
+.add_miniaturas {
     width: 40px;
     height: 40px;
     text-align: center;
@@ -133,10 +133,8 @@ div#change_prod:hover {
     outline: none !important;
     margin-right: 9px;
 }
-.add_actions {
-    display: flex;
-}
-.add_actions .add_miniaturas:hover {
+
+.add_miniaturas:hover {
     background: #4bca4b;
 }
 .actions_box_primary .content-mini {
@@ -148,5 +146,14 @@ div#change_prod:hover {
     letter-spacing: -1.5px;
 }
 .actions_box_primary .icon-select {
-    margin-top: 45px;
+    margin-top: 50px;
+}
+
+button#save_date {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    background: #5cb85c;
+    border: none !important;
 }
