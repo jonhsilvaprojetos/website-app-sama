@@ -1,3 +1,8 @@
+<?php
+
+	require "config/isLogged.php";
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -29,12 +34,12 @@
              <div class="botoes-config float-right">
                     <ul>
                         <div class="usuario-logado float-left m-r-50 m-t-7">
-                                    Victor Silva <i class="fas fa-caret-down"></i>
+                        <?php echo $_SESSION['userName'] ?> <i class="fas fa-caret-down"></i>
                         </div>
                        <li class="m-r-10 suporte"><a href="#"><i class="fas fa-question-circle"></i></a></li> 
                        <li class="m-r-10 configuracao"><a href="#"><i class="fas fa-cog"></i></a></li> 
                        <li class="m-r-10 ver-loja"><a href="#"><i class="fas fa-external-link-square-alt"></i></a></li> 
-                       <li class="deslogar"><a href="#"><i class="fas fa-sign-out-alt"></i></a></li> 
+                       <li class="deslogar"><a href="config/logout.php"><i class="fas fa-sign-out-alt"></i></a></li> 
                     </ul>
                 </div>
             </div>
