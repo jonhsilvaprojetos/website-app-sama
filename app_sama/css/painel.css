@@ -70,7 +70,10 @@ a {
 }
 
 /*/ CORPO /*/
-
+#corpo .row {
+    width: 100%;
+    margin: 0;
+}
 #corpo .table-painel {
     border: 1px solid #f9f9f9;
 }
@@ -164,11 +167,19 @@ color: #fff;
     }
 }
 
+
+/*/ MEDIA MOBILE ATE 550PX /*/
 @media screen and (max-width:550px){
+
+    /*/ CORPO /*/
+    #parceiros, #temas, #parceiros *, #temas * {
+        padding:0;
+    }
+
+    /*/ RODAPE /*/
     #rodape .redes-sociais, #rodape .direitos-autorais {
         text-align: center !important;
     }
-
     #rodape .direitos-autorais {
         font-size: 14px;
     }
