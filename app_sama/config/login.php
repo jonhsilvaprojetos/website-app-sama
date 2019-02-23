@@ -43,7 +43,7 @@
                         $_SESSION['nivel_acesso'] = $usuario['nivel_acesso'];
 
 
-                        header("Location: ../dash");
+                        header("Location: ../painel");
 
 
 
