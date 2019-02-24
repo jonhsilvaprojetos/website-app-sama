@@ -102,17 +102,31 @@ div#change_prod:hover {
     border-radius: 100px;
 }
 .box_thumbnails .remove {
-    width: 26px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
     background: #B71C1C;
     position: absolute;
     bottom: -11px;
     right: 5px;
-    font-size: 11px;
-    line-height: 27px;
+    font-size: 10px;
+    line-height: 22px;
     border-radius: 50px;
     color: #fff;
     transition: all 0.3s ease 0s;
+}
+
+.box_thumbnails .remove i {
+    position: relative;
+    left: -0px;
+}
+.box_thumbnails div#change_prod {
+    width: 20px;
+    height: 20px;
+    right: 29px;
+    font-size: 10px;
+    padding: 0;
+    line-height: 21px;
+    bottom: -11px;
 }
 .box_thumbnails .remove:hover {
     background: #f30404;
@@ -232,17 +246,18 @@ button#save_date {
 
 .modal_products .product-block span.txt-name, .prod_select span.name_select {
     display: -webkit-box;
-    max-height: 36px;
-    -webkit-box-orient: vertical;overflow: hidden;
+    max-height: 17px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     font-size: 14px;
     line-height: 18px;
     font-weight: 400;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     color: #313131;
-    height: 36px;
+    height: 17px;
 }
 
 .modal_products .product-block .sku-prod .txt-sku,.prod_select span.sku_select {
@@ -289,10 +304,40 @@ button#save_date {
 }
 
 .prod_select .img_select {
-    height: 150px;
+    height: 166px;
     overflow: hidden;
-    margin-bottom: 4px;
+    margin-bottom: 9px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* prod recebido */
+.prod_select {
+    display: block;
+    padding: 5px;
+}
+.box_primary.received .actions_box_primary {
+    display: none;
+}
+.box_thumbnails .info_select {
+    display: none;
+}
+.box_thumbnails .actions_thumb.received {
+    display: none;
+}
+.box_thumbnails .prod_select img {
+    width: 80px !important;
+}
+
+.box_thumbnails .prod_select .img_select {
+    height: 85px !important;
+    margin: 0;
+}
+
+
+
+
+#form_create_date .wrap_receive {
+    display: flex;
 }
