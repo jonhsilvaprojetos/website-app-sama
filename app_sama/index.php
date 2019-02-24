@@ -82,8 +82,6 @@ session_start();
 
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-50 p-b-30">
 
-			<div class="avatar_user_remember text-center p-b-30"></div>
-
 			<form class="login100-form validate-form" method="post" action="config/login.php" onsubmit="verificaLogin(event)">
 
 				<span class="login100-form-title p-b-37">

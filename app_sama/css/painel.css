@@ -70,7 +70,10 @@ a {
 }
 
 /*/ CORPO /*/
-
+#corpo .row {
+    width: 100%;
+    margin: 0;
+}
 #corpo .table-painel {
     border: 1px solid #f9f9f9;
 }
@@ -136,6 +139,7 @@ color: #fff;
     background: #fff;
     padding: 20px 0px;
     border-top: 2px solid #f5f5f5;
+    width: 100%;
 }
 #rodape .row {
     align-items: center;
@@ -157,18 +161,21 @@ color: #fff;
     #temas {
         padding-right: 0px;
     }
-    #rodape {
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-    }
 }
 
+
+/*/ MEDIA MOBILE ATE 550PX /*/
 @media screen and (max-width:550px){
+
+    /*/ CORPO /*/
+    #parceiros, #temas, #parceiros *, #temas * {
+        padding:0;
+    }
+
+    /*/ RODAPE /*/
     #rodape .redes-sociais, #rodape .direitos-autorais {
         text-align: center !important;
     }
-
     #rodape .direitos-autorais {
         font-size: 14px;
     }
