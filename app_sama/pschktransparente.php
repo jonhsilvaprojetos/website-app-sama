@@ -13,17 +13,19 @@
 </head>
 <body>
 <h3>Pagamento via botão</h3>
+
 <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
-<form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+<form name="formPagamento" id="formPagamento" action="https://sandbox.pagseguro.uol.com.br/checkout/v2/payment.html?code=" method="GET">
 <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
-<input type="hidden" name="code" value="6534C71DCBCB8A5EE4882F958AFAC21D" />
+<input type="hidden" id="code" name="code" value="" />
 <input type="hidden" name="iot" value="button" />
-<input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-pagar-azul-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+<input id="botaoPagamento" type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-pagar-azul-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
 </form>
 <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
 
 <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
 <script src="vendors/bootstrap/js/popper.min.js"></script>
 <script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/pagseguro.js"></script>
 </body>
 </html>
