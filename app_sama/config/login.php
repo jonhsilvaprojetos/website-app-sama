@@ -40,6 +40,8 @@
 
                         $_SESSION['userTel'] = $usuario['telefone'];
 
+                        $_SESSION['userToken'] = $usuario['token'];
+
                         $_SESSION['nivel_acesso'] = $usuario['nivel_acesso'];
 
 
