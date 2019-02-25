@@ -117,7 +117,7 @@ class ProductsObject{
     });	
         
     }
-
+    
     loadProducts(obj){
         let $class = this;
         let inicio = 0;
@@ -146,7 +146,6 @@ class ProductsObject{
                     recebe:[]
                 }
             }
-
         $('form#form_create_date').on('submit',function(event){
             event.preventDefault();
             console.log('submitou');
@@ -167,7 +166,6 @@ class ProductsObject{
         });
 
     }
-
 
     returnXMLobj(callback){
         var myOBJECT = {
