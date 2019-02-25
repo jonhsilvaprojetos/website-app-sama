@@ -61,7 +61,7 @@
                         <tr>
                             <td class="border-0">Compre junto 2.0</td>
                             <td class="border-0"><span class="status-app ativo-s">Ativo</span></td>
-                            <td class="border-0 text-right"><a class="config-app p-2" href="javascript:;"><i class="fas fa-wrench"></i></a></td>
+                            <td class="border-0 text-right"><a class="config-app p-2" href="../app_sama/apps/compre_junto"><i class="fas fa-wrench"></i></a></td>
                         </tr>
                         <tr>
                             <td class="border-0">Plugin instagram</td>

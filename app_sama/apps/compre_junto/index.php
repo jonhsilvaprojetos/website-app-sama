@@ -1,3 +1,32 @@
+<?php
+
+session_start();
+
+if($_SESSION['isLogged']){
+
+  require "../../config/conexao.php";
+
+}else{
+
+  header("Location: ../../index");
+
+}
+
+$tokenuser = $_SESSION['userToken'];
+
+if(isset($_POST['data_primary']) && isset($_SESSION['userToken'])){
+
+$appname = "Compre Junto";
+$dataApp = addslashes($_POST['data_primary']);
+
+$sql = "INSERT INTO apps (nome_app, token_user, dados_app) VALUES ('$appname', '$tokenuser', '$dataApp')";
+$sql = $pdo->query($sql);
+
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -47,7 +76,7 @@
 
             <div class="box_content_app_compre_junto">
                 <div class="wrap_content">
-                    <form id="form_create_date" action="" method="">
+                    <form id="form_create_date" method="POST">
                         <div id="data_parent_primary">
                             <div class="box_primary">
                                     <div class="wrap_dataset">
@@ -87,6 +116,28 @@
                     </form>   
                 </div>
             </div>
+
+            
+            <?php
+
+              $sql = "SELECT * FROM apps WHERE token_user = '$tokenuser'";
+              $sql = $pdo->query($sql);
+
+              if($sql->rowCount() > 0){
+
+                foreach($sql->fetchAll() as $dataProd){
+                  if($dataProd['nome_app'] == "Compre Junto"){
+                    echo '<div class="box_content_app_compre_junto">';
+                    echo '<div class="wrap_content">';
+                    $obj = json_decode($dataProd['dados_app']);
+                    echo "<h3>{$obj->name}</h3>";
+                    echo "<a href='{$obj->link}'><img src='{$obj->image}'/></a>";
+                    echo '</div>';
+                    echo '</div>';
+                  }
+                }
+              }
+            ?>
         </div>
     </div>
 

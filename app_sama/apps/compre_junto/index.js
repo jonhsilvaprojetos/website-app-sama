@@ -147,7 +147,7 @@ class ProductsObject{
                 }
             }
         $('form#form_create_date').on('submit',function(event){
-            event.preventDefault();
+            //event.preventDefault();
             console.log('submitou');
             [...$(this)[0].elements].forEach(function(item, index){
 

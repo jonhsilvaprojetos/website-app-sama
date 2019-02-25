@@ -11,15 +11,15 @@ $data["token"] = "F09BFC2A92F141A2A5AD24A30394C9C8";
 $data["currency"] = "BRL";
 $data["itemId1"] = "1";
 $data["itemDescription1"] = "Pacote Apps Sama";
-$data["itemAmount1"] = "99.90";
+$data["itemAmount1"] = "50.90";
 $data["itemQuantity1"] = "1";
 $data["itemWeight1"] = "1";
 $data["reference"] = "0001";
 $data["senderName"] = "Jonh Silva";
 $data["senderAreaCode"] = "37";
-/* caso for enviado para endereco 
 $data["senderPhone"] = "56273440";
 $data["senderEmail"]="c13398943789599410784@sandbox.pagseguro.com.br";
+/* caso for enviado para endereco 
 $data["shippingType"]="1";
 $data["shippingAddressStreet"]="Av. Brig. Faria Lima";
 $data["shippingAddressNumber"]="1384";
