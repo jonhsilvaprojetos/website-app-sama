@@ -9,133 +9,163 @@ class ProductsObject{
         $class.returnXMLobj((obj)=>{
                 console.log(obj.items_data);
                 $class.loadProducts(obj.items_data); 
-                $class.clickBoxPrimary();
-                $class.clickBoxThumb();
-                $class.clickAddMoreMore();
-            });     
+        });   
+        
+        $class.clickBoxPrimary();
+        $class.clickBoxThumb();
+        $class.clickAddMoreMore(); 
+        $class.removeItem();
+        $class.onSubmitForm();
     }
 
     clickAddMoreMore(){
         let $class = this;
         $('.add_miniaturas').click(function(){
-            let thisAdd = $(this).siblings('.wrap_receive');
+            let parents = $(this).siblings('#items_receive');
+            $('body').attr('data_parent',`#${parents[0].id}`).removeAttr('data_change');
             $class.showModalProds();
-                $('div#btn-select-product').unbind().click(function(e){
-                    let datasetObject = $(this).parents('.product-block').find('input#input-product-dataset')[0].dataset
-                    let sttr = JSON.stringify(datasetObject);
-                    thisAdd.append(`<div id="data_parent_thumb">
-                                    <div class="box_thumbnails">
-                                        <div class="wrap_dataset">
-                                            <div class="wrap_date hidden">
-                                                <div class="i-date hidden"><input class="hidden" type="text" id="data_set" data-select="${sttr}"></div>
-                                            </div>
-                                        </div>
-                                        <div id="getProductHTML">
-                                            ${$class.htmlProdSelected(datasetObject)}
-                                        </div> 
-                                        <div class="action_block">
-                                        <div id="change_prod"><i class="fas fa-exchange-alt"></i></div>   
-                                        <div class="remove"><i class="fas fa-trash"></i></div>
-                                        </div>
-                                    </div>
-                                </div>`);
-                    $class.changeProd();
-            $class.hideModalProds();     
-            });	
-
         });
     }
     changeProd(){
         let $class = this
-        $class.clickBoxToAdd('div#data_parent_thumb div#change_prod','div#data_parent_thumb');
+        $('#items_receive div#change_prod').click(function(){
+            $class.showModalProds();
+            $(this).parents().each(function(i,e){
+                if($(this).attr('id')){
+                    if($(e)[0].id.includes('data_parent')){
+                        $('body').attr('data_parent', `#${$(e).attr('id')}`);
+                    }
+                }
+            });
+        $('body').attr('data_change','true');
+        });
     }
 
     clickBoxPrimary(){
         let $class = this
-        $class.clickBoxToAdd('.box_primary','#data_parent_primary');
+        $class.moduloForClickThumbAndPrimary('.actions_thumb','div#data_parent_thumb','thumb');
     }
-
     clickBoxThumb(){
         let $class = this
-        $class.clickBoxToAdd('.actions_thumb','#data_parent_thumb');
+        $class.moduloForClickThumbAndPrimary('.box_primary','div#data_parent_primary','primary');
     }
-    
-    clickBoxToAdd(Element, Parents){
-        let $class = this
-        $(Element).click(function(){
-            
+    moduloForClickThumbAndPrimary(element, parentsThis, dataElement){
+        let $class = this;
+        $(element).click(function(){
+            var parents = $(this).parents(parentsThis);
             $class.showModalProds();
-            $class.selectProduct($(this), Parents);
+            $('body').attr('data_parent',`#${parents[0].id}`).attr('data_element',dataElement).removeAttr('data_change');
+        
         });
     }
 
-    
-    selectProduct(THIS, PARENTS){
+
+    DOMProducts(inicio, fim, obj){
         let $class = this;
-        let thisParents = THIS.parents(PARENTS);
-        $('div#btn-select-product').unbind().on('click',function(e){
-                console.log(thisParents);
-                let datasetObject = $(this).parents('.product-block').find('input#input-product-dataset')[0].dataset
-                let sttr = JSON.stringify(datasetObject);
-                thisParents.find('input#data_set')[0].dataset.select = sttr;
-                thisParents.find('input#data_set')[0].value = sttr;
-                thisParents.find('#getProductHTML').html($class.htmlProdSelected(datasetObject));
-                thisParents.find('.action_block').removeClass('hidden');
-                THIS.addClass('received');
-                $class.hideModalProds();     
-        });	
-    }
+        obj.splice(inicio,fim).forEach(element=>{
+            let e = element.info_item
+            $('#products-modal .row.wrap-prds').append($class.htmlProductLoad(e));
+        });
 
-    DOMProducts(e){
-        let prodLoaded = `<div class="col-md-3">
-        <div class="product-block">
-            <div  class="wrapdataset hidden">
-            <input class="hidden" id="input-product-dataset" type="text" data-sku="${e['g:id']}" data-name="${e.title}" data-link="${e.link}" data-image="${e['g:image_link']}">
-            </div>
-            <div class="img-product">
-                <div class="wrapimg"><img src="${e['g:image_link'].replace('/800x800/','/300x300/')}" alt="${e.title}"></div>
-            </div>
-            <div class="info-product">
-                <div class="name-prod">
-                    <span class="txt-name data-toggle="tooltip" data-placement="bottom" title="${e.title}">${e.title}</span>
-                </div>
-                <div class="sku-prod">
-                    <span class="txt-sku">SKU: ${e['g:id']}</span>
-                </div>
-            </div>
-            <div id="btn-select-product"><span>Selecionar</span></div>
-        </div>
-        </div>`;
-        return prodLoaded;
+                                    
+        $('div#btn-select-product').unbind().click(function(e){
+            let datasetObject = $(this).parents('.product-block').find('input#input-product-dataset')[0].dataset
+            let sttr = JSON.stringify(datasetObject);
+            let parent = $('body').attr('data_parent');
+            if($('body').attr('data_change')){
+                    $(`form#form_create_date ${parent} input#data_set`)[0].dataset.select = sttr;
+                    $(`form#form_create_date ${parent} input#data_set`).val(`${sttr}`);
+                    $(`form#form_create_date ${parent} #getProductHTML`).html($class.htmlProdSelected(datasetObject));
+            }else{
+                if( parent == '#items_receive'){
 
+                    $(`form#form_create_date ${parent}`).append(`
+                    <div id="data_parent_thumb_${datasetObject.sku}" name="thumb">
+                        <div class="box_thumbnails">
+                            <div class="wrap_dataset">
+                                <div class="wrap_date hidden">
+                                    <div class="i-date hidden"><input class="hidden" type="text" id="data_set" data-select='${sttr}'></div>
+                                </div>
+                            </div>
+                        <div id="getProductHTML">
+                            ${$class.htmlProdSelected(datasetObject)}
+                        </div> 
+                        <div class="action_block">
+                        <div id="change_prod"><i class="fas fa-exchange-alt"></i></div>   
+                        <div class="remove"><i class="fas fa-trash"></i></div>
+                            </div>
+                        </div>
+                    </div>`);
+                    $class.removeItem();
+                }else{
+                    if($('body').attr('data_element') == 'thumb'){
+                        $('.add_miniaturas.off').removeClass('off');
+                    }
+                        $(`form#form_create_date ${parent} #getProductHTML`).html($class.htmlProdSelected(datasetObject));
+                        $(`form#form_create_date ${parent} input#data_set`)[0].dataset.select = sttr;
+                        $(`form#form_create_date ${parent} input#data_set`).val(`${sttr}`);
+                    
+                }  
+            }   
+
+            $(`form#form_create_date ${parent}`).addClass('__received').find('.action_block').removeClass('hidden');
+
+            $class.changeProd();
+        $class.hideModalProds();
+        $('body').removeAttr('data_change').removeAttr('data_parent');
+
+    });	
+        
     }
 
     loadProducts(obj){
         let $class = this;
         let inicio = 0;
         let fim = 50;
-
-
         $('div#exampleModal').scroll(function() {
             if($('div#exampleModal').scrollTop() + $('div#exampleModal').height() == $('.modal-dialog').height() + 40) {
                 inicio + 50
                 fim + 100;
-                obj.splice(inicio,fim).forEach(element=>{
-                    var e = element.info_item
-                    $('#products-modal .row.wrap-prds').append($class.DOMProducts(e));
-   
-                });
+                $class.DOMProducts(inicio, fim, obj);
             }
         });
+        $class.DOMProducts(inicio, fim, obj);
+    }
 
-                obj.splice(inicio,fim).forEach(element=>{
-                    var e = element.info_item
-                    $('#products-modal .row.wrap-prds').append($class.DOMProducts(e));
-                });
+    removeItem(){
+        $('.box_thumbnails .remove').click(function(){
+            $(this).parents('[name="thumb"]').remove();
+        });
+    }
 
+    onSubmitForm(){
+        let objForm = {
+                dataProd: {
+                    configList:{},
+                    principal:{},
+                    recebe:[]
+                }
+            }
 
+        $('form#form_create_date').on('submit',function(event){
+            event.preventDefault();
+            console.log('submitou');
+            [...$(this)[0].elements].forEach(function(item, index){
 
-       
+                if(item.type !== 'submit'){
+                    if(item.name == 'data_primary'){
+                        objForm.dataProd.principal = JSON.parse(item.dataset.select)
+                        console.dir(item);
+                    }else {
+                        objForm.dataProd.recebe.push(JSON.parse(item.dataset.select))
+                        console.dir(item);
+                    }
+                }
+                
+            });
+            console.log(objForm);
+        });
+
     }
 
 
@@ -144,7 +174,7 @@ class ProductsObject{
             store_data: [],
             items_data: []
         };
-        ajaxREQ.get('xml','https://tema-base-sama.lojaintegrada.com.br/xml/822ee/googlemerchant.xml',Start=>{
+        ajaxREQ.get('xml','https://www.iluminim.com.br/xml/358fd/googlemerchant.xml',Start=>{
             console.log('startou agor');
         },Finish=>{
             console.log('finalizou agr');
@@ -171,7 +201,9 @@ class ProductsObject{
                             months: `${a.childNodes[0].textContent}`, price_months: `${a.childNodes[1].textContent}`  
                             }
 
-                        }else {
+                        }else if(a.nodeName === 'g:image_link'){
+                            myOBJECT.items_data[indexBox].info_item[`${a.nodeName}`] = a.textContent.replace('/800x800/','/300x300/');
+                        }else{
                             myOBJECT.items_data[indexBox].info_item[`${a.nodeName}`] = a.textContent;
                         }
                     });    
@@ -193,7 +225,29 @@ class ProductsObject{
     }
 
 
-
+    htmlProductLoad(obj){
+        let htmlProd = `
+        <div class="col-md-3">
+            <div class="product-block">
+                <div  class="wrapdataset hidden">
+                <input class="hidden" id="input-product-dataset" type="text" data-sku="${obj['g:id']}" data-name="${obj.title}" data-link="${obj.link}" data-image="${obj['g:image_link']}">
+                </div>
+                <div class="img-product">
+                    <div class="wrapimg"><img src="${obj['g:image_link']}" alt="${obj.title}"></div>
+                </div>
+                <div class="info-product">
+                    <div class="name-prod">
+                        <span class="txt-name data-toggle="tooltip" data-placement="bottom" title="${obj.title}">${obj.title}</span>
+                    </div>
+                    <div class="sku-prod">
+                        <span class="txt-sku">SKU: ${obj['g:id']}</span>
+                    </div>
+                </div>
+                <div id="btn-select-product"><span>Selecionar</span></div>
+            </div>
+        </div>`;
+        return htmlProd; 
+    }
 
     htmlProdSelected(obj){
         let htmlProd = `
