@@ -30,7 +30,7 @@
               <div id="products-modal">
                 <div class="row wrap-prds"></div>
               </div>
-
+              <div class="loading_sama text-center"><img src="https://loading.io/spinners/typing/lg.-text-entering-comment-loader.gif"></div>
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@
                             <div class="box_primary">
                                     <div class="wrap_dataset">
                                             <div class="wrap_date hidden">
-                                                <div class="i-date hidden"><input class="hidden" type="text" id="data_set"></div>
+                                                <div class="i-date hidden"><input class="hidden" type="text" name="data_primary" id="data_set"></div>
                                             </div>
                                     </div>
                                     <div id="getProductHTML"></div>
@@ -64,8 +64,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="wrap_receive">
-                          <div id="data_parent_thumb">
+                        <div class="wrap_receive" id="items_receive">
+                          <div id="data_parent_thumb" name="thumb">
                               <div class="box_thumbnails">
                                   <div class="wrap_dataset">
                                       <div class="wrap_date hidden">
@@ -82,7 +82,7 @@
                               </div>
                           </div>
                         </div>         
-                            <div class="add_miniaturas">+1</div>
+                            <div class="add_miniaturas off">+1</div>
                             <button type="submit" id="save_date"class="btn btn-success">Salvar</button>
                     </form>   
                 </div>
